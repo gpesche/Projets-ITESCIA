@@ -1,0 +1,103 @@
+#Fonction pour déterminé le jour de la semaine
+def jourdelasemaine(anneefinale2):
+    reste = anneefinale2%7
+    if reste == 0:
+        j = "Dimanche"
+        return j
+    elif reste == 1:
+        j = "Lundi"
+        return j
+    elif reste == 2:
+        j = "Mardi"
+        return j
+    elif reste == 3:
+        j = "Mercredi"
+        return j
+    elif reste == 4:
+        j = "Jeudi"
+        return j
+    elif reste == 5:
+        j = "Vendredi"
+        return j
+    elif reste == 6:
+        j = "Samedi"
+        return j
+    else:
+        j = "Veuillez vérifier les paramètres"
+        return j
+
+
+
+#On initialise les variables
+jour = int(input ("Quel est le nombre du jour de l'année ? "))
+mois = str(input("Dans quel mois ce trouve ce jour ? "))
+annee = int(input("Dans quelle année se trouve ce jour ? "))
+annee2 = str(annee)
+
+
+#On determine si cette année fait partie du calendrier grégorien
+if annee < 1582:
+    print ("Cette anne ne fait pas partie du calendrier grégorien, je ne peu pas déterminé le jour de la semaine")
+else:
+    print ("Nous allons maintenant déterminer à quel jour correspond cette date")
+
+#On prend les deu derniers chiffres de l'année et on ajoute la journée du mois
+len(annee2)
+annee3 = annee2[2] + annee2[3]
+anneefinale = int(annee3)
+anneefinale1 = int(anneefinale/4)
+anneefinale2 = anneefinale + anneefinale1 + jour
+print (anneefinale2)
+
+
+#On va ajouter un chiffre qui va etre determiné par le mois
+if mois == "Janvier":
+    anneefinale2 = anneefinale2 + 0
+elif mois == "Fevrier":
+    anneefinale2 = anneefinale2 + 3
+elif mois == "Mars":
+    anneefinale2 = anneefinale2 + 3
+elif mois == "Avril":
+    anneefinale2 = anneefinale2 + 6
+elif mois == "Mai":
+    anneefinale2 = anneefinale2 + 1
+elif mois == "Juin":
+    anneefinale2 = anneefinale2 + 4
+elif mois == "Juillet":
+    anneefinale2 = anneefinale2 + 6
+elif mois == "Aout":
+    anneefinale2 = anneefinale2 + 2
+elif mois == "Septembre":
+    anneefinale2 = anneefinale2 + 5
+elif mois == "Octobre":
+    anneefinale2 = anneefinale2 + 0
+elif mois == "Novembre":
+    anneefinale2 = anneefinale2 + 3
+elif mois == "Decembre":
+    anneefinale2 = anneefinale2 + 5
+else:
+    print ("Verifier le format du mois")
+
+#On determine le siècle
+len(annee2)
+siecle = annee2[0] + annee2[1]
+
+#On ajoute un nombre selon le siècle
+if siecle == "16":
+    anneefinale2 = anneefinale2 + 6
+elif siecle == "17":
+    anneefinale2 = anneefinale2 + 4
+elif siecle == "18":
+    anneefinale2 = anneefinale2 + 2
+elif siecle == "19":
+    anneefinale2 = anneefinale2 + 0
+elif siecle == "20":
+    anneefinale2 = anneefinale2 + 6
+elif siecle == "21":
+    anneefinale2 = anneefinale2 + 4
+else:
+    print ("Verifier le format de l'année")
+
+print ("Le jour de la semaine correspondant a la date est le",(jourdelasemaine(anneefinale2)))
+
+#Je n'ai pas réussi à déterminer si l'année est bissextile
